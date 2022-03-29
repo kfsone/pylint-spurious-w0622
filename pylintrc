@@ -1,0 +1,203 @@
+[MASTER]
+extension-pkg-whitelist=
+ignore=CVS,.svn,.git
+ignore-patterns=
+init-hook=sys.path.extend(["./Scripts", "../Scripts"])
+jobs=1
+load-plugins=pylint.extensions.emptystring,
+			 pylint.extensions.bad_builtin,
+			 pylint.extensions.docstyle,
+			 pylint.extensions.overlapping_exceptions,
+             pylint.extensions.check_elif,
+             pylint.extensions.redefined_variable_type,
+             pylint.extensions.typing,
+persistent=yes
+suggestion-mode=yes
+unsafe-load-any-extension=no
+
+[MESSAGES CONTROL]
+confidence=
+disable=
+		docstring-first-line-empty,
+        attribute-defined-outside-init, # eliminate
+        bad-continuation,               # eliminate
+        bad-whitespace,
+        bare-except,
+        broad-except,
+        consider-using-f-string,        ###PY2-TO-3
+        fixme,
+        global-statement,
+        invalid-name,
+        keyword-arg-before-vararg,      # dangerous
+        line-too-long,                  # eliminate
+        logging-format-interpolation,   # eliminate
+        missing-docstring,
+        no-init,
+        no-self-use,
+        redefined-outer-name,           # dangerous
+        too-few-public-methods,
+        too-many-arguments,
+        too-many-branches,
+        too-many-instance-attributes,
+        too-many-lines,
+        too-many-locals,
+        too-many-nested-blocks,         # eliminate
+        too-many-public-methods,
+        too-many-return-statements,     # eliminate
+        too-many-statements,
+        trailing-newlines,              # eliminate
+        unspecified-encoding,           ###PY2-TO-3
+        unused-argument,
+        unused-import,                  # eliminate
+        unused-wildcard-import,         # eliminate
+        wildcard-import,                # eliminate
+        wrong-import-order,
+        wrong-import-position,
+		duplicate-code,
+		raise-missing-from,				# eliminate
+		import-outside-toplevel,		# eliminate
+		consider-using-in,				# eliminate
+        deprecated-typing-alias,
+        consider-using-alias,           # eliminate
+		consider-alternative-union-syntax, # ELIMINATE
+enable=c-extension-no-member
+
+[REPORTS]
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+output-format=parseable
+reports=no
+score=yes
+
+[REFACTORING]
+max-nested-blocks=5
+never-returning-functions=optparse.Values,sys.exit
+
+[BASIC]
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+bad-names=foo,
+          bar,
+          baz,
+          toto,
+          tutu,
+          tata
+class-attribute-naming-style=any
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+docstring-min-length=-1
+function-naming-style=snake_case
+good-names=i,
+           j,
+           _,
+           logger
+include-naming-hint=yes
+inlinevar-naming-style=any
+method-naming-style=snake_case
+module-naming-style=snake_case
+name-group=
+no-docstring-rgx=^_
+property-classes=abc.abstractproperty
+variable-naming-style=snake_case
+
+[FORMAT]
+expected-line-ending-format=
+ignore-long-lines=^(\s*(# )?<?https?://\S+>?|.*add_argument.*help=.*)$
+indent-after-paren=4
+indent-string='    '
+max-line-length=120
+max-module-lines=1000
+no-space-check=
+single-line-class-stmt=no
+single-line-if-stmt=no
+
+[LOGGING]
+logging-modules=logging
+
+[MISCELLANEOUS]
+notes=FIXME,
+      XXX,
+      TODO
+
+[SIMILARITIES]
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=no
+min-similarity-lines=4
+
+[SPELLING]
+max-spelling-suggestions=4
+spelling-dict=
+spelling-ignore-words=
+spelling-private-dict-file=
+spelling-store-unknown-words=no
+
+[TYPECHECK]
+contextmanager-decorators=contextlib.contextmanager
+generated-members=
+ignore-mixin-members=yes
+ignore-on-opaque-inference=yes
+ignored-classes=optparse.Values,thread._local,_thread._local
+ignored-modules=
+missing-member-hint=yes
+missing-member-hint-distance=1
+missing-member-max-choices=1
+
+[VARIABLES]
+additional-builtins=
+allow-global-unused-variables=yes
+callbacks=cb_,
+          _cb
+dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
+ignored-argument-names=_.*|^ignored_|^unused_
+init-import=no
+redefining-builtins-modules=six.moves,past.builtins,future.builtins,io,builtins
+
+[DESIGN]
+max-args=5
+max-attributes=7
+max-bool-expr=5
+max-branches=12
+max-complexity=10
+max-locals=15
+max-parents=7
+max-public-methods=20
+max-returns=6
+max-statements=50
+min-public-methods=2
+[CLASSES]
+defining-attr-methods=__init__,
+                      __new__,
+                      setUp
+exclude-protected=_asdict,
+                  _fields,
+                  _replace,
+                  _source,
+                  _make
+valid-classmethod-first-arg=cls
+valid-metaclass-classmethod-first-arg=mcs
+
+[IMPORTS]
+allow-wildcard-with-all=no
+analyse-fallback-blocks=no
+deprecated-modules=regsub,
+                   TERMIOS,
+                   Bastion,
+                   rexec
+ext-import-graph=
+import-graph=
+int-import-graph=
+known-standard-library=
+known-third-party=enchant
+
+[PARAMETER_DOCUMENTATION]
+accept-no-param-doc=yes
+accept-no-raise-doc=yes
+accept-no-return-doc=yes
+accept-no-yields-doc=yes
+default-docstring-type=default
+
+[EXCEPTIONS]
+overgeneral-exceptions=Exception
+
+[TYPING]
+runtime-typing=no

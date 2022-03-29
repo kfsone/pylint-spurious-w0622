@@ -1,0 +1,7 @@
+venv*
+.venv*
+.vs
+.vscode
+.idea
+.pycharm
+*~
